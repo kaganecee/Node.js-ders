@@ -10,7 +10,6 @@ yargs.command({
     builder: {
         title:{
             describe: "Note title",
-            // demandOption:true zorunlu olması
             type:"string"
         },
         body:{
@@ -19,7 +18,7 @@ yargs.command({
             type:"string"
         }
 
-    }, //object,özellikleri tutuyoruz.
+    }, 
     handler(argv){
         notes.addNote(argv.title,argv.body)
     }
