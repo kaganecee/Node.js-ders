@@ -7,7 +7,7 @@ const address = process.argv[2]
 if(!address){
     console.log("Please provide an address.")
 }else{
-    geocode(address,(error,data)=>{
+    geocode(address,(error,data)=>{ //Object destructuring (error,{latitude,longitude,location}={})
         if(error){
             console.log(error)
         }else{
