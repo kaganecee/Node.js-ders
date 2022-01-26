@@ -64,13 +64,14 @@ userSchema.methods.toJSON = function(){
     const userObject = user.toObject()
     delete userObject.password
     delete userObject.tokens
+    delete userObject.avatar
 
     return userObject
 }
 
 userSchema.methods.generateAuthToken = async function () {
     const user = this
-    const token = jwt.sign({ _id: user._id.toString()},"nodejscourse")
+    const token = jwt.sign({ _id: user._id.toString()},process.env.JWT_SECRET)
 
     user.tokens = user.tokens.concat({token: token})
     await user.save()
